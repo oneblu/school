@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h1>Estudiantes</h1>
+  <v-card outlined>
+    <v-card-title>Estudiantes</v-card-title>
+    <v-card-text>
     <v-row align="center">
 
       <v-col
@@ -33,7 +34,13 @@
       </v-text-field>
     </template>
   </v-data-table>
-  </div>
+  </v-card-text>
+  <v-card-actions>
+    <v-btn
+      color="primary"
+    >Guardar</v-btn>
+  </v-card-actions>
+  </v-card>
 </template>
 <script>
 import axios from 'axios'

@@ -1,13 +1,15 @@
 <template>
-  <div>
-    <h1>Estudiantes</h1>
+  <v-card outlined>
+    <v-card-title>Estudiantes</v-card-title>
+    <v-card-text>
     <v-data-table
     :headers="headers"
     :items="students"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
-  </div>
+  </v-card-text>
+  </v-card>
 </template>
 <script>
 import axios from 'axios'

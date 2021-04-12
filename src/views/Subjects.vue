@@ -1,15 +1,14 @@
 <template>
-  <div>
-    <h1>Asignaturas</h1>
-    <v-btn color="primary" @click="addSubject">
-    Crear asignatura
-  </v-btn>
+  <v-card outlined>
+    <v-card-title>Asignaturas</v-card-title>
+    <v-card-text>
     <v-data-table
     :headers="headers"
     :items="subjects"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
+  </v-card-text>
   <form-subject v-model="dialog" :dialog="dialog" @close="dialog = false" @saveSuccess="showMessage"></form-subject>
   <v-snackbar
       v-model="snackbar"
@@ -27,7 +26,18 @@
         </v-btn>
       </template>
     </v-snackbar>
-  </div>
+          <v-btn
+        bottom
+        color="pink"
+        dark
+        fab
+        fixed
+        right
+        @click="addSubject"
+      >
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+  </v-card>
 </template>
 <script>
 import axios from 'axios'

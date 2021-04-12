@@ -1,6 +1,5 @@
 <template>
-<v-row justify="center">
-    <v-dialog
+  <v-dialog
       :value="dialog"
       persistent
       max-width="600px"
@@ -45,8 +44,7 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-    </v-dialog>
-  </v-row>
+  </v-dialog>
 </template>
 <script>
 import axios from 'axios'
