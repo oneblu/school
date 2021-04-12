@@ -10,6 +10,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
+  // TODO: Hola mundo
   name: 'Home',
   components: {
     HelloWorld
