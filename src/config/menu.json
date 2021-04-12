@@ -1,0 +1,14 @@
+[
+    {
+        "label": "Estudiantes",
+        "to": "/students"
+    },
+    {
+        "label": "Asignaturas",
+        "to": "/subjects"
+    },
+    {
+        "label": "Notas",
+        "to": "/grades"
+    }
+]
