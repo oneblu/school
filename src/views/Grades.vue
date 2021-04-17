@@ -1,5 +1,6 @@
 <template>
-  <v-card outlined>
+  <v-card outlined
+  :loading="loading">
     <v-card-title>Estudiantes</v-card-title>
     <v-card-text>
     <v-row align="center">
@@ -25,13 +26,36 @@
     class="elevation-1"
   >
   <template v-slot:[`item.grade`]="{ item }">
-      <v-text-field
+    <v-row class="mt-1">
+      <v-col>
+        <v-text-field
       outlined
-      label="Nota"
-      class="mt-1"
-      v-model.number="item.grade"
+      dense
+      label="Nota 30%"
+      v-model.number="item.grade1"
       >
       </v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field
+      outlined
+      dense
+      label="Nota 30%"
+      v-model.number="item.grade2"
+      >
+      </v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field
+      outlined
+      dense
+      label="Nota 40%"
+      v-model.number="item.grade3"
+      >
+      </v-text-field>
+      </v-col>
+      <v-col>NOTA FINAL: {{(item.grade1*0.3)+(item.grade2*0.3)+(item.grade3*0.4)}}</v-col>
+    </v-row>
     </template>
   </v-data-table>
   </v-card-text>
@@ -49,6 +73,7 @@ export default {
   components: {
   },
   data: () => ({
+    loading: false,
     drawer: null,
     students: [],
     subjects: [],
@@ -59,14 +84,19 @@ export default {
   }),
   created () {
     this.getSubjects()
-    this.getStudents()
   },
   methods: {
     getSubjects () {
+      this.loading = true
       axios.get('https://60732025e4e0160017ddf479.mockapi.io/api/v1/subjects')
         .then((response) => {
           console.log(response)
           this.subjects = response.data
+          this.getStudents()
+        }).catch(error => {
+          console.log(error)
+        }).finally(() => {
+          this.loading = false
         })
     },
     getStudents () {
@@ -74,7 +104,10 @@ export default {
         .then((response) => {
           const items = JSON.parse(JSON.stringify(response.data))
           items.map(item => {
-            item.grade = 5
+            item.grade1 = 0
+            item.grade2 = 0
+            item.grade3 = 0
+            item.gradeFinal = 0
             return item
           })
           this.students = items

@@ -1,5 +1,8 @@
 <template>
-  <v-card outlined>
+  <v-card
+    outlined
+    :loading="loading"
+  >
     <v-card-title>Estudiantes</v-card-title>
     <v-card-text>
     <v-data-table
@@ -39,12 +42,15 @@ export default {
       { text: 'Dirección', value: 'address.street' },
       { text: 'Ciudad', value: 'address.city' },
       { text: 'Actions', value: 'actions', sortable: false }
-    ]
+    ],
+    loading: false
   }),
   created () {
+    this.loading = true
     axios.get('https://jsonplaceholder.typicode.com/users')
       .then((response) => {
         this.students = response.data
+        this.loading = false
       })
   },
   methods: {
