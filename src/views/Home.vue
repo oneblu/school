@@ -1,7 +1,17 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Mensaje" :contacto="contact">
+      HOLA MUNDO
+
+  <template #header="{contacto}">
+    {{contacto.name}}
+  </template>
+
+    <template #footer>
+      Here's some contact info
+    </template>
+
+    </HelloWorld>
   </div>
 </template>
 
@@ -12,6 +22,14 @@ import HelloWorld from '@/components/HelloWorld.vue'
 export default {
   // TODO: Hola mundo
   name: 'Home',
+  data () {
+    return {
+      contact: {
+        name: 'Pepito Perez',
+        telefono: '65456464'
+      }
+    }
+  },
   components: {
     HelloWorld
   }

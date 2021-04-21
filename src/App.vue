@@ -122,6 +122,7 @@
       <v-main>
         <v-container fluid>
         <router-view />
+        <hello-world></hello-world>
         </v-container>
       </v-main>
 
@@ -131,14 +132,17 @@
 
 <script>
 import menu from '@/config/menu.json'
+import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
+    HelloWorld
   },
-  data: () => ({
-    dialog: false,
-    drawer: null,
-    items: menu
-  })
+  data: () =>
+    ({
+      dialog: false,
+      drawer: null,
+      items: menu
+    })
 }
 </script>
