@@ -12,13 +12,18 @@
     </template>
 
     </HelloWorld>
+
+    <v-btn @click="increment">Count</v-btn>
+    <v-alert type="info">
+      {{ $store.state.count }}
+    </v-alert>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-
+import { mapMutations } from 'vuex'
 export default {
   // TODO: Hola mundo
   name: 'Home',
@@ -32,6 +37,11 @@ export default {
   },
   components: {
     HelloWorld
+  },
+  methods: {
+    ...mapMutations([
+      'increment'
+    ])
   }
 }
 </script>

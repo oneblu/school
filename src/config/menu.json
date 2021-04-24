@@ -5,23 +5,11 @@
     {
       "icon": "mdi-chevron-up",
       "icon-alt": "mdi-chevron-down",
-      "text": "Labels",
+      "text": "Navegador",
       "model": true,
       "children": [
-        { "icon": "mdi-plus", "text": "Create label" }
-      ]
-    },
-    {
-      "icon": "mdi-chevron-up",
-      "icon-alt": "mdi-chevron-down",
-      "text": "More",
-      "model": false,
-      "children": [
-        { "text": "Import" },
-        { "text": "Export" },
-        { "text": "Print" },
-        { "text": "Undo changes" },
-        { "text": "Other contacts" }
+        { "icon": "mdi-plus", "text": "About", "path": "/about" },
+        { "icon": "mdi-plus", "text": "Home", "path": "/" }
       ]
     },
     { "icon": "mdi-cog", "text": "Settings" },

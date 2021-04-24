@@ -19,11 +19,6 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/students',
-    name: 'Students',
-    component: () => import(/* webpackChunkName: "students" */ '../views/Students.vue')
-  },
-  {
     path: '/subjects',
     name: 'Subjects',
     component: () => import(/* webpackChunkName: "subjects" */ '../views/Subjects.vue')
@@ -34,9 +29,33 @@ const routes = [
     component: () => import(/* webpackChunkName: "grades" */ '../views/Grades.vue')
   },
   {
-    path: '/parents/:studentId',
-    name: 'Parents',
-    component: () => import(/* webpackChunkName: "parents" */ '../views/Parents.vue')
+    path: '/students',
+    name: 'Students',
+    component: () => import(/* webpackChunkName: "studentsLayout" */ '../views/Students/Layout'),
+    children: [
+      {
+        path: '',
+        name: 'Students',
+        component: () => import(/* webpackChunkName: "showStudent" */ '../views/Students')
+      },
+      {
+        path: ':id',
+        name: 'Student',
+        component: () => import(/* webpackChunkName: "showStudent" */ '../views/Students/Show'),
+        children: [
+          {
+            path: ':id/parents',
+            name: 'Parents',
+            component: () => import(/* webpackChunkName: "parents" */ '../views/Students/Parents')
+          }
+        ]
+      },
+      {
+        path: 'create',
+        name: 'StudentCreate',
+        component: () => import(/* webpackChunkName: "studentCreate" */ '../views/Students/Create')
+      }
+    ]
   }
 ]
 

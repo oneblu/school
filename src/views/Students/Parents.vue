@@ -31,17 +31,12 @@ export default {
   },
   data: () => ({
     drawer: null,
-    parents: [],
-    student: {
-      name: '',
-      phone: '',
-      email: ''
-    }
+    parents: []
   }),
   created () {
-    axios.get('https://jsonplaceholder.typicode.com/users/' + this.$route.params.studentId)
+    axios.get('https://jsonplaceholder.typicode.com/users/')
       .then((response) => {
-        this.student = response.data
+        this.parents = response.data
       })
   },
   methods: {
