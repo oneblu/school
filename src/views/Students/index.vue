@@ -43,8 +43,25 @@ export default {
       { text: 'Ciudad', value: 'address.city' },
       { text: 'Actions', value: 'actions', sortable: false }
     ],
-    loading: false
+    loading: false,
+    invoice: {
+      details: {
+        qty: 0,
+        price: 0,
+        name: '',
+        discount: 0
+      }
+    }
   }),
+  computed: {
+    totalApagar () {
+      let subtotal = 0
+      this.invoice.details.forEach(item => {
+        subtotal += item.price * item.qty
+      })
+      return subtotal
+    }
+  },
   created () {
     this.loading = true
     axios.get('https://jsonplaceholder.typicode.com/users')

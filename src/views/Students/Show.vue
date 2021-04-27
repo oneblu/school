@@ -3,12 +3,8 @@
   <v-card
     outlined
     :loading="loading"
+    v-if="student"
   >
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      height="200px"
-    ></v-img>
-
     <v-card-title>
       Datos del estudiante
     </v-card-title>
@@ -36,21 +32,10 @@
       >
         Volver
       </v-btn>
-      <v-spacer></v-spacer>
-
-      <v-btn
-        icon
-      >
-        <v-icon>mdi-chevron-left</v-icon>
-      </v-btn>
     </v-card-actions>
   </v-card>
-  <v-card>
-    <v-card-text>
-      Aqui van los padres
-      <router-view></router-view>
-    </v-card-text>
-  </v-card>
+  Aqui salen los padres
+  <router-view></router-view>
   </v-container>
 </template>
 <script>
@@ -60,7 +45,7 @@ export default {
   components: {
   },
   data: () => ({
-    student: null,
+    student: '',
     loading: false
   }),
   created () {

@@ -1,6 +1,6 @@
 <template>
   <v-card outlined>
-    <v-card-title>Acudientes del estudiante: {{ student.name }}</v-card-title>
+    <v-card-title>Acudientes del estudiante</v-card-title>
     <v-card-text>
       <v-row v-for="(parent, index) in parents" :key="index">
         <v-col cols="6">

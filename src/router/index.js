@@ -44,7 +44,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "showStudent" */ '../views/Students/Show'),
         children: [
           {
-            path: ':id/parents',
+            path: 'parents',
             name: 'Parents',
             component: () => import(/* webpackChunkName: "parents" */ '../views/Students/Parents')
           }
